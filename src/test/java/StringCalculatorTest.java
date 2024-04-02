@@ -25,4 +25,9 @@ public class StringCalculatorTest {
     public void testTwoNumbersInString() {
         Assertions.assertEquals(3, calculator.add("1,2"));
     }
+
+    @Test
+    public void testArbitraryAmountOfNumbersInString() {
+        Assertions.assertEquals(15, calculator.add("1,2,3,4,5"));
+    }
 }
