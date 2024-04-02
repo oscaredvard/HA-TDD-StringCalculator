@@ -11,9 +11,7 @@ public class StringCalculator {
             int[] arr = Arrays.stream(input.split(","))
                     .mapToInt(Integer::parseInt).toArray();
 
-            int result = Arrays.stream(arr).sum();
-
-            return result;
+            return Arrays.stream(arr).sum();
         }
     }
 }
