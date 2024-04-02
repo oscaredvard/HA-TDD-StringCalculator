@@ -1,11 +1,19 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class StringCalculator {
 
     public int add(String input) {
-
         if (input.isEmpty()) {
             return 0;
         } else {
-            return Integer.parseInt(input);
+            int[] arr = Arrays.stream(input.split(","))
+                    .mapToInt(Integer::parseInt).toArray();
+
+            int result = Arrays.stream(arr).sum();
+
+            return result;
         }
     }
 }

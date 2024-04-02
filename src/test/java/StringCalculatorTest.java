@@ -20,4 +20,9 @@ public class StringCalculatorTest {
     public void testOneNumberInString() {
        Assertions.assertEquals(1, calculator.add("1"));
     }
+
+    @Test
+    public void testTwoNumbersInString() {
+        Assertions.assertEquals(3, calculator.add("1,2"));
+    }
 }
