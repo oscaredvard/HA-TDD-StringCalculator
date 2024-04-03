@@ -40,4 +40,9 @@ public class StringCalculatorTest {
     public void testCustomDelimiter() {
         Assertions.assertEquals(3,calculator.add("//;\n1;2"));
     }
+
+    @Test
+    public void testNegativeNumberInString() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> calculator.add("//,\n1,2,-3,4"));
+    }
 }

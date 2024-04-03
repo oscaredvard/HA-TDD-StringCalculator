@@ -17,6 +17,12 @@ public class StringCalculator {
             int[] int_arr = Arrays.stream(str_arr)
                     .mapToInt(Integer::parseInt).toArray();
 
+            for (int i : int_arr) {
+                if (Integer.signum(i) == -1) {
+                    throw new IllegalArgumentException(String.format("Negatives not allowed - %d", i));
+                }
+            }
+
             return Arrays.stream(int_arr).sum();
         }
     }
