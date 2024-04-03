@@ -6,10 +6,18 @@ public class StringCalculator {
         if (input.isEmpty()) {
             return 0;
         } else {
-            int[] arr = Arrays.stream(input.split("[,\n]"))
+            String[] arr = input.split("\n", 2);
+
+            String delimiter = String.valueOf(arr[0].charAt(2));
+
+            String regex = "[" + delimiter + "\\n]";
+
+            String[] str_arr =  arr[1].split(regex);
+
+            int[] int_arr = Arrays.stream(str_arr)
                     .mapToInt(Integer::parseInt).toArray();
 
-            return Arrays.stream(arr).sum();
+            return Arrays.stream(int_arr).sum();
         }
     }
 }

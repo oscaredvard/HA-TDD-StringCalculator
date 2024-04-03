@@ -18,21 +18,26 @@ public class StringCalculatorTest {
 
     @Test
     public void testOneNumberInString() {
-       Assertions.assertEquals(1, calculator.add("1"));
+       Assertions.assertEquals(1, calculator.add("//,\n1"));
     }
 
     @Test
     public void testTwoNumbersInString() {
-        Assertions.assertEquals(3, calculator.add("1,2"));
+        Assertions.assertEquals(3, calculator.add("//,\n1,2"));
     }
 
     @Test
     public void testArbitraryAmountOfNumbersInString() {
-        Assertions.assertEquals(15, calculator.add("1,2,3,4,5"));
+        Assertions.assertEquals(15, calculator.add("//,\n1,2,3,4,5"));
     }
 
    @Test
     public void testLinesBetweenNumbers() {
-        Assertions.assertEquals(6, calculator.add("1\n2,3"));
+        Assertions.assertEquals(6, calculator.add("//,\n1\n2,3"));
+    }
+
+    @Test
+    public void testCustomDelimiter() {
+        Assertions.assertEquals(3,calculator.add("//;\n1;2"));
     }
 }
