@@ -6,13 +6,20 @@ public class StringCalculator {
         if (input.isEmpty()) {
             return 0;
         } else {
-            String[] arr = input.split("\n", 2);
 
-            String delimiter = String.valueOf(arr[0].charAt(2));
+            String[] str_arr = null;
 
-            String regex = "[" + delimiter + "\\n]";
+            if (input.startsWith("//")) {
+                String[] arr = input.split("\n", 2);
 
-            String[] str_arr =  arr[1].split(regex);
+                String delimiter = String.valueOf(arr[0].charAt(2));
+
+                String regex = "[" + delimiter + "\\n]";
+
+                str_arr = arr[1].split(regex);
+            } else {
+                str_arr = input.split("[,\n]");
+            }
 
             int[] int_arr = Arrays.stream(str_arr)
                     .mapToInt(Integer::parseInt).toArray();
